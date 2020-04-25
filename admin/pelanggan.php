@@ -23,7 +23,6 @@
                 <td><?php echo $pecah['telepon_pelanggan']; ?></td>
                 <td>
                     <a href="index.php?halaman=hapuspelanggan&id=<?php echo $pecah['id_pelanggan']; ?>" 
-                       style="margin-right:-79px;" 
                        class="btn-danger btn">Hapus</a>
                 </td>
             </tr>
