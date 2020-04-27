@@ -1,6 +1,15 @@
 <?php 
+session_start();
 //koneksi database
 $koneksi = new mysqli("localhost","root","","ducoto");
+
+if (!isset($_SESSION['admin'])) 
+{
+  echo "<script>alert('anda harus login');</script>";
+  echo "<script>location='login.php';</script>";
+  header('location=login.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +22,10 @@ $koneksi = new mysqli("localhost","root","","ducoto");
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>DUCOTO ADMIN</title>
 
   <!-- Custom fonts for this template-->
+  <link rel="shortcut icon" type="image/png" href="../admin/icon/favicon.png"/>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -34,10 +44,10 @@ $koneksi = new mysqli("localhost","root","","ducoto");
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <img src="../admin/icon/ducoto2.png" style="opacity: 0.8;margin-left:30px;width:150px;height:50px;">
         </div>
-        <div class="sidebar-brand-text mx-3">Admin Ducoto <sup></sup></div>
+        <div class="sidebar-brand-text mx-3"><sup></sup></div>
       </a>
 
       <!-- Divider -->
@@ -46,23 +56,28 @@ $koneksi = new mysqli("localhost","root","","ducoto");
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <img src="../admin/icon/dashboard1.png" style="width:25px;height:25px;">
           <span>Home</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="index.php?halaman=produk">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+        <img src="../admin/icon/product2.png" style="width:25px;height:25px;">
           <span>Produk</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="index.php?halaman=pembelian">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+        <img src="../admin/icon/transaction2.png" style="width:25px;height:25px;">
           <span>Pembelian</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="index.php?halaman=pelanggan">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+        <img src="../admin/icon/user2.png" style="width:25px;height:25px;">
           <span>Pelanggan</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php?halaman=admin">
+        <img src="../admin/icon/admin.png" style="width:25px;height:25px;">
+          <span>Admin</span></a>
       </li>
 
       <!-- Divider -->
@@ -108,17 +123,18 @@ $koneksi = new mysqli("localhost","root","","ducoto");
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">CHAINZ</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                <img src="../admin/icon/profile.png" width="28">
+                <?php echo $_SESSION["admin"]['nama_lengkap'] ?></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="index.php?halaman=admin">
+                <a class="dropdown-item" href="index.php?halaman=adminprofile">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.php?halaman=logout" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="index.php?halaman=logout">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -128,7 +144,7 @@ $koneksi = new mysqli("localhost","root","","ducoto");
 
         </nav>
         <!-- End of Topbar -->
-
+        
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -149,6 +165,14 @@ $koneksi = new mysqli("localhost","root","","ducoto");
               {
                 include 'pelanggan.php';
               }
+              elseif ($_GET['halaman']=="admin")
+              {
+                include 'admin.php';
+              }
+              elseif ($_GET['halaman']=="adminprofile")
+              {
+                include 'adminprofile.php';
+              }
               elseif ($_GET['halaman']=="detailpembelian")
               {
                 include 'detailpembelian.php';
@@ -161,6 +185,10 @@ $koneksi = new mysqli("localhost","root","","ducoto");
               {
                 include 'tambahproduk.php';
               }
+              elseif ($_GET['halaman']=="tambahadmin")
+              {
+                include 'tambahadmin.php';
+              }
               elseif ($_GET['halaman']=="hapusproduk")
               {
                 include 'hapusproduk.php';
@@ -169,9 +197,25 @@ $koneksi = new mysqli("localhost","root","","ducoto");
               {
                 include 'hapuspelanggan.php';
               }
+              elseif ($_GET['halaman']=="hapuspembelian")
+              {
+                include 'hapuspembelian.php';
+              }
+              elseif ($_GET['halaman']=="hapusadmin")
+              {
+                include 'hapusadmin.php';
+              }
               elseif ($_GET['halaman']=="ubahproduk")
               {
                 include 'ubahproduk.php';
+              }
+              elseif ($_GET['halaman']=="ubahadmin")
+              {
+                include 'ubahadmin.php';
+              }
+              elseif ($_GET['halaman']=="logout")
+              {
+                include 'logout.php';
               }
             }
             else

@@ -1,9 +1,11 @@
-<div>
-    
-    <h2>Data Pelanggan</h2>
-
-    <table class="table table-bordered">
-        <thead>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h5 class="m-0 font-weight-bold text-primary">Data Pelanggan</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
             <tr>
                 <th>No</th>
                 <th>Nama</th>
@@ -11,8 +13,8 @@
                 <th>Telepon</th>
                 <th>Aksi</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <?php $nomor=1; ?>
             <?php $ambil=$koneksi->query("SELECT * FROM pelanggan"); ?>
             <?php while($pecah = $ambil->fetch_assoc()){ ?>
@@ -28,6 +30,17 @@
             </tr>
             <?php $nomor++; ?>
             <?php } ?>
-        </tbody>
-    </table>
+          </body>
+          <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Telepon</th>
+                <th>Aksi</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
 </div>

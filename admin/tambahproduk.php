@@ -12,11 +12,11 @@
         </div>
         <div class="form-group">
             <label>Power</label>
-            <input type="text" class="form-control" name="Power">
+            <input type="text" class="form-control" name="Power" value=" HP">
         </div>
         <div class="form-group">
             <label>Torque</label>
-            <input type="text" class="form-control" name="Torque">
+            <input type="text" class="form-control" name="Torque" value=" Nm">
         </div>
         <div class="form-group">
             <label>Silinder</label>
@@ -24,23 +24,23 @@
         </div>
         <div class="form-group">
             <label>Bensin Rata Rata</label>
-            <input type="text" class="form-control" name="Bensin_Rata_Rata">
+            <input type="text" class="form-control" name="Bensin_Rata_Rata" value=" km/l">
         </div>
         <div class="form-group">
             <label>Bensin Full</label>
-            <input type="text" class="form-control" name="Bensin_Full">
+            <input type="text" class="form-control" name="Bensin_Full" value=" litres">
         </div>
         <div class="form-group">
             <label>Tinggi</label>
-            <input type="text" class="form-control" name="Tinggi">
+            <input type="text" class="form-control" name="Tinggi" value=" mm">
         </div>
         <div class="form-group">
             <label>Berat</label>
-            <input type="text" class="form-control" name="Berat">
+            <input type="text" class="form-control" name="Berat" value=" kg">
         </div>
         <div class="form-group">
             <label>CC</label>
-            <input type="text" class="form-control" name="CC">
+            <input type="text" class="form-control" name="CC" value=" CC">
         </div>
         <div class="form-group">
             <label>Mesin</label>
@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
             <label>Top Speed</label>
-            <input type="text" class="form-control" name="Top_Speed">
+            <input type="text" class="form-control" name="Top_Speed" value=" kmh">
         </div>
         <div class="form-group">
             <label>Deskripsi</label>
@@ -58,7 +58,7 @@
             <label>Foto Produk</label>
             <input type="file" class="form-control" name="foto_produk">
         </div>
-        <button class="btn btn-primary" name="save">Simpan</button>
+        <button class="btn btn-primary" name="save">Simpan</button> </p>
     </form>
     <?php
     if (isset($_POST['save']))

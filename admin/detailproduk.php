@@ -10,9 +10,12 @@
         Rp. <?php echo $detail['harga_produk']; ?>,-<br>
         <?php echo $detail['deskripsi_produk']; ?>
     </p>
+    <?php $ambil=$koneksi->query("SELECT * FROM produk WHERE produk.id_produk='$_GET[id]'"); ?>
+        <?php while($pecah = $ambil->fetch_assoc()){ ?>
     <p class="txt1">
-        Produk : <br><img src="../foto_produk/<?php echo $pecah['foto_produk']; ?>" width="100"><br>
+        Produk : <br><img style="margin-left:-10px;" src="../foto_produk/<?php echo $pecah['foto_produk']; ?>" width="100"><br>
     </p>
+        <?php } ?>
     
     <table class="table table-bordered">
         <thead>
@@ -57,7 +60,7 @@
 <style scoped lang="scss">
     .txt1 {
         float: right;
-        margin-top: -69px; 
+        margin-top: -109px; 
     }
     .table1 {
         max-width: 10px;

@@ -56,16 +56,14 @@
         </div>
         <div class="form-group">
             <label>Deskripsi</label>
-            <textarea name="Deskripsi" class="form-control" rows="10">
-                <?php echo $pecah['deskripsi_produk']; ?>
-            </textarea>
+            <textarea name="Deskripsi" class="form-control" rows="10"><?php echo $pecah['deskripsi_produk']; ?></textarea>
         </div>
         <div class="form-group">
             <label>Foto Produk</label> <br>
             <img src="../foto_produk/<?php echo $pecah['foto_produk']; ?>" width="500">
             <input type="file" class="form-control" name="foto_produk" value="<?php echo $pecah['foto_produk']; ?>">
         </div>
-        <button class="btn btn-primary" name="ubah">Ubah</button> </br>
+        <button class="btn btn-primary" name="ubah">Ubah</button> </p>
     </form>
     <?php
     if (isset($_POST['ubah']))
