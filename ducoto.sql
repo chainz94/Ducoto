@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Apr 2020 pada 03.24
+-- Waktu pembuatan: 27 Apr 2020 pada 07.55
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.1
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `nama_lengkap`) VALUES
-(1, 'ducoto.com', 'ducoto.com', 'Chainz7\r\n');
+(4, 'ducoto', 'ducoto', 'Chainz');
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `pembelian` (
   `id_pembelian` int(11) NOT NULL,
   `id_pelanggan` int(11) NOT NULL,
   `tanggal_pembelian` date NOT NULL,
-  `total_pembelian` int(11) NOT NULL
+  `total_pembelian` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -85,8 +85,7 @@ CREATE TABLE `pembelian` (
 --
 
 INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `tanggal_pembelian`, `total_pembelian`) VALUES
-(1, 1, '2020-04-01', 38500000),
-(2, 2, '2020-04-02', 38500000);
+(3, 1, '2020-04-01', '100000000');
 
 -- --------------------------------------------------------
 
@@ -107,7 +106,8 @@ CREATE TABLE `pembelian_produk` (
 
 INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produk`, `jumlah`) VALUES
 (1, 1, 11, 2),
-(2, 2, 11, 1);
+(2, 2, 11, 1),
+(3, 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produ
 CREATE TABLE `produk` (
   `id_produk` int(11) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
-  `harga_produk` int(25) NOT NULL,
+  `harga_produk` varchar(100) NOT NULL,
   `power_produk` varchar(100) NOT NULL,
   `torque_produk` varchar(100) NOT NULL,
   `silinder_produk` varchar(100) NOT NULL,
@@ -138,7 +138,15 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `power_produk`, `torque_produk`, `silinder_produk`, `bensinrata_produk`, `bensinfull_produk`, `tinggi_produk`, `berat_produk`, `cc_produk`, `mesin_produk`, `topspeed_produk`, `deskripsi_produk`, `foto_produk`) VALUES
-(11, 'DUCATI DIAVEL 1260', 385000000, '155.56 HP @9500 RPM', '129.50 Nm @7500 RPM', '4 L-Twin', '            18.5', '17', '780', '218', '1,266', 'L-Twin', '272', '                                                                                                                                                                                                Powerful. Muscular. But also agile and effective between the curves for maximum riding enjoyment                                                                                                                                                       ', 'DIAVEL 1260R.png');
+(1, 'DUCATI PANIGALE V2', '272000000', '155HP', '104Nm', '4 L-Twin', '20 km/l', '17 litres', '840 mm', '176 kg', '955 CC', 'L-Twin', '271 kmh', 'The Red Essence', 'PANIGALE V2.png'),
+(2, 'DUCATI PANIGALE V4', '878000000', '214HP', '124Nm ', '4 V-Twin', '14,5 km/l', '16  litres', '835  mm', '175  kg', '1,103  CC', 'V-Twin', '299  kmh', 'The Science of Speed                        ', 'PANIGALE V4.png'),
+(4, 'DUCATI PANIGALE V4R', '2100000000', '221HP ', '112Nm ', '4 V-Twin', '14,5 km/l', '16 litres', '830 mm', '172 kg', '998 CC', 'V-Twin', '330 kmh', 'The Sound of Excellence                        ', 'PANIGALE V4 R.png'),
+(5, 'DUCATI PANIGALE 1299 R FINAL EDITION', '533000000', '209 HP', '142 Nm', '2 L-Twin', '16 km/l', '17 liters', '830 mm', '168 kg', '1,286 CC', 'L-Twin', '312 kmh', 'Ducati most powerful twin cylinder ever                                                                                                          ', 'PANIGALE 1299.png'),
+(6, 'DUCATI SUPERLEGGERA V4', '4100000000', '233 HP', '119 Nm', '4 V4 Engine', '12,5 km/l', '16 litres', '835 mm', '152 kg', '998 CC', 'V4 Engine', '300 kmh', 'Dreams Matter Codename: Project 1708                                                ', 'SUPERLEGGERA V4.png'),
+(7, 'DUCATI STREETFIGHTER V4', '311000000', '208HP', '123Nm ', '4 V-Twin', '17 km/l', '16 litres', '845 mm', '180 kg', '1,103 CC', 'V-Twin', '270 kmh', 'The Fight Formula            ', 'STREETFIGHTER V4.png'),
+(8, 'DUCATI MONSTER 797', '309000000', '73 HP', '67 Nm', '2 L-Twin', '18 km/l', '16,5 litres', '805 mm', '175 kg', '803 CC', 'L-Twin', '210 kmh', 'Fresh vibes. Sporty Soul', 'MONSTER 797.png'),
+(9, 'DUCATI MONSTER 821', '440000000', '109 HP', '86 Nm', '2 L-Twin', '18,5 km/l', '16 litres', '785 - 810 mm', '180 kg', '821 CC', '\r\n            L-Twin', '225 kmh', 'Thats why we love Monster', 'MONSTER 821.png'),
+(10, 'DUCATI MONSTER 1200', '455000000', '147 HP', '124 Nm', '4 L-Twin', '19,2 km/l', '16,5 litres', '795 - 820 mm', '187 kg', '1,198 CC', 'L-Twin', '260 kmh', 'I am a Monster', 'MONSTER 1200.png');
 
 --
 -- Indexes for dumped tables
@@ -182,7 +190,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
@@ -194,19 +202,19 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT untuk tabel `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
