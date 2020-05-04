@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h5 class="m-0 font-weight-bold text-primary">Data Produk</h5>
+          <h5 class="m-0 font-weight-bold text-primary">Data Produk <a style="float:right;" href="index.php?halaman=tambahproduk" class="btn btn-primary">Tambah Data</a></h5>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -15,7 +15,7 @@
                     <th class="table2">Harga</th>
                     <th class="table2">Power/Torq</th>
                     <th class="table2">Silinder</th>
-                    <th class="table2">BensinAVG</th>
+                    <th class="table2">kategori</th>
                     <th class="table2">CC</th>
                     <th class="table2">Berat</th>
                     <th>TopSpeed</th>
@@ -35,7 +35,7 @@
                     <td class="table1"><?php echo $pecah['harga_produk']; ?></td>
                     <td class="table1"><?php echo $pecah['power_produk']; ?> / <?php echo $pecah['torque_produk']; ?></td>
                     <td class="table1"><?php echo $pecah['silinder_produk']; ?></td>
-                    <td class="table1"><?php echo $pecah['bensinrata_produk']; ?></td>
+                    <td class="table1"><?php echo $pecah['kategori_produk']; ?></td>
                     <td class="table1"><?php echo $pecah['cc_produk']; ?></td>
                     <td class="table1"><?php echo $pecah['berat_produk']; ?></td>
                     <td class="table1"><?php echo $pecah['topspeed_produk']; ?></td>
@@ -66,7 +66,7 @@
                     <th class="table2">Harga</th>
                     <th class="table2">Power/Torq</th>
                     <th class="table2">Silinder</th>
-                    <th class="table2">BensinAVG</th>
+                    <th class="table2">Kategori</th>
                     <th class="table2">CC</th>
                     <th class="table2">Berat</th>
                     <th>TopSpeed</th>

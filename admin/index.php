@@ -65,6 +65,11 @@ if (!isset($_SESSION['admin']))
           <span>Produk</span></a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="index.php?halaman=ongkir">
+        <img src="../admin/icon/product2.png" style="width:25px;height:25px;">
+          <span>Kurir</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="index.php?halaman=pembelian">
         <img src="../admin/icon/transaction2.png" style="width:25px;height:25px;">
           <span>Pembelian</span></a>
@@ -157,6 +162,10 @@ if (!isset($_SESSION['admin']))
               {
                 include 'produk.php';
               }
+              if ($_GET['halaman']=="ongkir")
+              {
+                include 'ongkir.php';
+              }
               elseif ($_GET['halaman']=="pembelian")
               {
                 include 'pembelian.php';
@@ -185,6 +194,10 @@ if (!isset($_SESSION['admin']))
               {
                 include 'tambahproduk.php';
               }
+              elseif ($_GET['halaman']=="tambahongkir")
+              {
+                include 'tambahongkir.php';
+              }
               elseif ($_GET['halaman']=="tambahadmin")
               {
                 include 'tambahadmin.php';
@@ -192,6 +205,10 @@ if (!isset($_SESSION['admin']))
               elseif ($_GET['halaman']=="hapusproduk")
               {
                 include 'hapusproduk.php';
+              }
+              elseif ($_GET['halaman']=="hapusongkir")
+              {
+                include 'hapusongkir.php';
               }
               elseif ($_GET['halaman']=="hapuspelanggan")
               {
@@ -208,6 +225,10 @@ if (!isset($_SESSION['admin']))
               elseif ($_GET['halaman']=="ubahproduk")
               {
                 include 'ubahproduk.php';
+              }
+              elseif ($_GET['halaman']=="ubahongkir")
+              {
+                include 'ubahongkir.php';
               }
               elseif ($_GET['halaman']=="ubahadmin")
               {

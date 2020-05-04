@@ -4,15 +4,15 @@
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label>Nama</label>
-            <input type="text" class="form-control" name="Nama">
+            <input type="text" class="form-control" name="Nama" required>
         </div>
         <div class="form-group">
             <label>Username</label>
-            <input type="text" class="form-control" name="Username">
+            <input type="text" class="form-control" name="Username" required>
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="text" class="form-control" name="Password">
+            <input type="text" class="form-control" name="Password" required>
         </div>
         <button class="btn btn-primary" name="save">Simpan</button> </p>
     </form>

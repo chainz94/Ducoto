@@ -5,7 +5,7 @@
     $ambil=$koneksi->query("SELECT * FROM produk WHERE produk.id_produk='$_GET[id]'");
     $detail = $ambil->fetch_assoc();
     ?>
-    <strong><?php echo $detail['nama_produk'];?></strong> <br>
+    <strong><?php echo $detail['nama_produk'];?> - <?php echo $detail['kategori_produk'];?> - <?php echo $detail['brand_produk'];?></strong> <br>
     <p>
         Rp. <?php echo $detail['harga_produk']; ?>,-<br>
         <?php echo $detail['deskripsi_produk']; ?>

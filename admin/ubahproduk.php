@@ -11,6 +11,32 @@
             <input type="text" class="form-control" name="Nama" value="<?php echo $pecah['nama_produk']; ?>">
         </div>
         <div class="form-group">
+            <label>Kategori</label>
+            <select class="form-control" name="Kategori">
+                <option><?php echo $pecah['kategori_produk']; ?></option>
+                <option>Matic</option>
+                <option>Sport</option>
+                <option>Enduro</option>
+                <option>Naked</option>
+                <option>Retro</option>
+                <option>Cruser</option>
+                <option>Tour</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Brand</label>
+            <select class="form-control" name="Brand">
+                <option><?php echo $pecah['brand_produk']; ?></option>
+                <option>Ducati</option>
+                <option>Kawasaki</option>
+                <option>Bmw</option>
+                <option>Yamaha</option>
+                <option>Honda</option>
+                <option>Aprilia</option>
+                <option>Ktm</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label>Harga (Rp)</label>
             <input type="number" class="form-control" name="Harga" value="<?php echo $pecah['harga_produk']; ?>">
         </div>
@@ -75,18 +101,18 @@
         {
             move_uploaded_file($lokasifoto, "../foto_produk/$namafoto");
 
-            $koneksi->query("UPDATE produk SET nama_produk='$_POST[Nama]',harga_produk='$_POST[Harga]',
-                power_produk='$_POST[Power]',torque_produk='$_POST[Torque]',silinder_produk='$_POST[Silinder]',
-                bensinrata_produk='$_POST[Bensin_Rata_Rata]',bensinfull_produk='$_POST[Bensin_Full]',
-                tinggi_produk='$_POST[Tinggi]',berat_produk='$_POST[Berat]',cc_produk='$_POST[CC]',
-                mesin_produk='$_POST[Mesin]',topspeed_produk='$_POST[Top_Speed]',
-                deskripsi_produk='$_POST[Deskripsi]',foto_produk='$namafoto' 
+            $koneksi->query("UPDATE produk SET nama_produk='$_POST[Nama]',kategori_produk='$_POST[Kategori]',brand_produk='$_POST[Brand]',
+                harga_produk='$_POST[Harga]',power_produk='$_POST[Power]',torque_produk='$_POST[Torque]',
+                silinder_produk='$_POST[Silinder]',bensinrata_produk='$_POST[Bensin_Rata_Rata]',
+                bensinfull_produk='$_POST[Bensin_Full]',tinggi_produk='$_POST[Tinggi]',
+                berat_produk='$_POST[Berat]',cc_produk='$_POST[CC]',mesin_produk='$_POST[Mesin]',
+                topspeed_produk='$_POST[Top_Speed]',deskripsi_produk='$_POST[Deskripsi]',foto_produk='$namafoto' 
                 WHERE id_produk='$_GET[id]'");
         }
         else
         {
-            $koneksi->query("UPDATE produk SET nama_produk='$_POST[Nama]',harga_produk='$_POST[Harga]',
-                power_produk='$_POST[Power]',torque_produk='$_POST[Torque]',silinder_produk='$_POST[Silinder]',
+            $koneksi->query("UPDATE produk SET nama_produk='$_POST[Nama]',kategori_produk='$_POST[Kategori]',brand_produk='$_POST[Brand]',
+                harga_produk='$_POST[Harga]',power_produk='$_POST[Power]',torque_produk='$_POST[Torque]',silinder_produk='$_POST[Silinder]',
                 bensinrata_produk='$_POST[Bensin_Rata_Rata]',bensinfull_produk='$_POST[Bensin_Full]',
                 tinggi_produk='$_POST[Tinggi]',berat_produk='$_POST[Berat]',cc_produk='$_POST[CC]',
                 mesin_produk='$_POST[Mesin]',topspeed_produk='$_POST[Top_Speed]',

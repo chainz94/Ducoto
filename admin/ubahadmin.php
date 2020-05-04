@@ -24,7 +24,7 @@
     if (isset($_POST['ubah']))
     {
         $koneksi->query("UPDATE admin SET nama_lengkap='$_POST[Nama]',username='$_POST[Username]',
-                password='$_POST[Password]'");
+                password='$_POST[Password]' WHERE id_admin='$_GET[id]'");
         
         echo "<script>alert('Data Admin Telah Diubah');</script>";
         echo "<script>location='index.php?halaman=admin';</script>";
